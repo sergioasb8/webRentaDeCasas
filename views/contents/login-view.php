@@ -4,7 +4,7 @@
         <img src="<?php echo SERVERURL; ?>views/assets/img/coming.svg" class="imgBack imgBackMargin">
     </div>
     <div>
-        <form class="FormMargin FormAjax" action="" method="POST" autocomplete="off">
+        <form class="FormMargin FormMarginTwo" action="" method="POST" autocomplete="off">
 
             <h2 class="formTitleH">Iniciar sesión</h2>
             <div class="inputContainer one">
@@ -25,7 +25,7 @@
                     <input type="password" class="inputUserReg" name="user_password_log" id="usuario_clave_1" pattern="[a-zA-Z0-9$@.-]{7,50}" maxlength="50" required="">
                 </div>
             </div>
-            <input type="submit" class="btnToSubmit" value="login">
+            <button type="submit" class="btnToSubmit">LOGIN</button>
         </form>
     </div>
 </div>

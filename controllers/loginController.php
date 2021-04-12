@@ -46,7 +46,7 @@
             $password=mainModel::encryption($password);
 
             $login_data=[
-                "Email"=>$userEmail,
+                "Mail"=>$userEmail,
                 "Password"=>$password
             ];
 
@@ -60,7 +60,7 @@
                 /** Creating the var for our session */
                 $_SESSION['id_rhs']=$row['id'];
                 $_SESSION['name_rhs']=$row['name'];
-                $_SESSION['email_rhs']=$row['email'];
+                $_SESSION['email_rhs']=$row['mail'];
                 $_SESSION['password_rhs']=$row['password'];
                 $_SESSION['city_rhs']=$row['city'];
                 $_SESSION['role_rhs']=$row['role'];

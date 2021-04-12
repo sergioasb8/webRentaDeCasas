@@ -1,5 +1,5 @@
 <?php
-	const SERVERURL="http://localhost/prueba/";
+	const SERVERURL="http://localhost/webRenta/";
 
 	const COMPANY="Renta de casas";
 

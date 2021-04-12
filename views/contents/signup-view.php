@@ -4,7 +4,7 @@
 		<img src="<?php echo SERVERURL; ?>views/assets/img/login.svg" class="imgBack">
 	</div>
 	<div>
-		<form class="sign-up-form FormAjax" action="<?php echo SERVERURL; ?>ajax/addUserAjax.php" method="POST" data-form="save" autocomplete="off">
+		<form class="FormMargin FormAjax" action="<?php echo SERVERURL; ?>ajax/addUserAjax.php" method="POST" data-form="save" autocomplete="off">
 
 			<h2 class="formTitleH">Crear cuenta</h2>
 			<div class="inputContainer one">
@@ -44,8 +44,8 @@
 					<h5 class="InputTitle">Rol</h5>
 					<select class="selectInput" name="user_role_reg" required="">
 						<option value="" selected="" disabled="">Seleccione una opción</option>
-						<option value="1">Inquilino</option>
-						<option value="2">Propietario</option>
+						<option value="Inquilino">Inquilino</option>
+						<option value="Propietario">Propietario</option>
 					</select>
 				</div>
 			</div>

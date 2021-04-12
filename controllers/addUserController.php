@@ -11,14 +11,14 @@
         /** Controller to add an user */
         public function add_user_controller() {
             $name=mainModel::clean_chain($_POST['user_name_reg']);
-            $email=mainModel::clean_chain($_POST['user_email_reg']);
+            $mail=mainModel::clean_chain($_POST['user_email_reg']);
             $passwordOne=mainModel::clean_chain($_POST['user_password_one_reg']);
             $passwordTwo=mainModel::clean_chain($_POST['user_password_two_reg']);
             $city=mainModel::clean_chain($_POST['user_city_reg']);
             $role=mainModel::clean_chain($_POST['user_role_reg']);
 
             /** checking that we do not have any empty requiered field */
-            if($name=="" || $email=="" || $passwordOne=="" || $passwordTwo=="" || $city=="" || $role==""){
+            if($name=="" || $mail=="" || $passwordOne=="" || $passwordTwo=="" || $city=="" || $role==""){
                 $alerta=[
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error",
@@ -30,11 +30,11 @@
             }
 
             /** checking that the email is not registered in the database */
-            if($email!="") {
+            if($mail!="") {
                 /** if the email is a valid email */
-                if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
-                    $check_email=mainModel::run_simple_query("SELECT email FROM users WHERE email='$email'");
-                    if($check_email->rowCount()>0) {
+                if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
+                    $check_mail=mainModel::run_simple_query("SELECT mail FROM users WHERE mail='$mail'");
+                    if($check_mail->rowCount()>0) {
                         $alerta = [
                             "Alerta"=>"simple",
                             "Titulo"=>"Ocurrio un error",
@@ -75,7 +75,7 @@
             /** Passing the data that we are goint to send to the model */
             $data_user_reg = [
                 "Name"=>$name,
-                "Email"=>$email,
+                "Mail"=>$mail,
                 "Password"=>$password,
                 "City"=>$city,
                 "Role"=>$role
