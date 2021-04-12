@@ -1,0 +1,161 @@
+/** @format */
+
+.loginWave {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.containerSignUp {
+  position: relative;
+  width: 100vw;
+  height: 77vh;
+}
+
+.divImgBack {
+  position: absolute;
+  width: 50vw;
+  height: auto;
+  margin-left: 0vw;
+  margin-top: 0vw;
+}
+
+.imgBack {
+  width: 100%;
+}
+
+.imgBackMargin {
+  margin-top: 10vh;
+}
+
+.FormAjax {
+  position: absolute;
+  width: 40vw;
+  margin-left: 55vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 0vw;
+}
+
+.FormMargin {
+  margin-top: 19vh;
+}
+
+.formTitleH {
+  margin: 8px 0;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+
+.inputContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.i {
+  color: #d9d9d9;
+  margin-top: 20px;
+}
+
+.divInput {
+  height: 58px;
+  width: 100%;
+}
+
+.InputTitle {
+  top: 5%;
+  color: #999;
+  font-size: 18px;
+  margin-left: 2vw;
+  z-index: 3;
+}
+
+.inputUserReg {
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  margin-top: -5vh;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 1.2rem;
+  color: #555;
+  font-family: "poppins", sans-serif;
+}
+
+.btnToSubmit {
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btnToSubmit:hover {
+  background-position: right;
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    grid-gap: 5rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  form {
+    width: 290px;
+  }
+
+  .img img {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .wave {
+    display: none;
+  }
+}
+
+.selectInput {
+  outline: none;
+  border: 1px solid rgb(202, 199, 199);
+  background: none;
+  color: #999;
+  font-size: 1.1rem;
+  font-family: "poppins", sans-serif;
+  margin-top: -100px;
+  width: 90%;
+  margin-left: 2vw;
+}
+
+.select::selection {
+  outline: none;
+  border: none;
+  background: none;
+  color: #999;
+  font-family: "poppins", sans-serif;
+}
