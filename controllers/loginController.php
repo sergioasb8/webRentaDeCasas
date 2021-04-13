@@ -71,7 +71,7 @@
                 
                 //    UWAGA         UWAGA          UWAGA           UWAGA           UWAGA 
                 
-                return header("Location: ".SERVERURL."home/");
+                return header("Location: ".SERVERURL."house/");
             }
             else {
                 echo '

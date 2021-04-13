@@ -2,8 +2,6 @@
 
 /** add Houses view */
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 }
 
@@ -11,45 +9,31 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.container-houses {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 7rem;
-  padding: 0 2rem;
-}
-
-.img {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
 .houses-content {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   text-align: center;
+  flex-direction: row;
+  width: 100vw;
 }
 
-.img img {
-  width: 500px;
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
-form {
-  width: 50vw;
-}
-
-.houses-content img {
-  height: auto;
-}
-
-.houses-content h2 {
-  margin: 15px 0;
+.titleImg {
+  margin: 15px 30px;
   color: #333;
   text-transform: uppercase;
   font-size: 2.9rem;
+}
+
+.addHouseForm {
+  width: 50vw;
+  height: 70vh;
+  overflow: auto;
 }
 
 .houses-content .input-div-houses {
