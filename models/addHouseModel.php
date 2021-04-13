@@ -7,18 +7,20 @@
         /** Model to add a House */
         protected static function add_house_model($data){
             
-            $sql = mainModel::connect()->prepare("INSERT INTO houses(descrip,rooms,bath,parking,internet,services,locat,price,capacity,owner_id) VALUES(:Descrip,:Rooms,:Bath,:Parking,:Internet,:Services,:Locat,:Price,:Capacity,:Owner_id)");
+            $sql = mainModel::connect()->prepare("INSERT INTO houses(name,description,rooms,bath,parking,internet,services,location,price,capacity,user_id,img_main) VALUES(:Name,:Description,:Rooms,:Bath,:Parking,:Internet,:Services,:Location,:Price,:Capacity,:User_id,:Img_main)");
 
-            $sql->bindParam(":Descrip",$data['Descrip']);
+            $sql->bindParam(":Name",$data['Name']);
+            $sql->bindParam(":Description",$data['Description']);
             $sql->bindParam(":Rooms",$data['Rooms']);
             $sql->bindParam(":Bath",$data['Bath']);
             $sql->bindParam(":Parking",$data['Parking']);
             $sql->bindParam(":Internet",$data['Internet']);
             $sql->bindParam(":Services",$data['Services']);
-            $sql->bindParam(":Locat",$data['Locat']);
+            $sql->bindParam(":Location",$data['Location']);
             $sql->bindParam(":Price",$data['Price']);
             $sql->bindParam(":Capacity",$data['Capacity']);
-            $sql->bindParam(":Owner_id",$data['Owner_id']);
+            $sql->bindParam(":User_id",$data['User_id']);
+            $sql->bindParam(":Img_main",$data['Img_main']);
 
             $sql->execute();
 

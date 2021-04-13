@@ -2,8 +2,6 @@
 
 /** add Houses view */
 * {
-  padding: 0;
-  margin: 0;
   box-sizing: border-box;
 }
 
@@ -11,48 +9,41 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.container-houses {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 7rem;
-  padding: 0 2rem;
-}
-
-.img {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
 .houses-content {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   text-align: center;
+  flex-direction: row;
+  width: 100vw;
 }
 
-.img img {
-  width: 500px;
-}
-
-form {
+.imgAddHouseContainer {
+  display: flex;
+  flex-direction: column;
   width: 50vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
-.houses-content img {
+.titleImg {
+  margin: 15px 30px;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 2.6rem;
+}
+
+.imgHouse {
+  width: 40vw;
   height: auto;
 }
 
-.houses-content h2 {
-  margin: 15px 0;
-  color: #333;
-  text-transform: uppercase;
-  font-size: 2.9rem;
+.addHouseForm {
+  margin-top: 50px;
+  width: 50vw;
+  height: 100vh;
+  overflow: auto;
 }
 
-.houses-content .input-div-houses {
+.input-div-houses {
   position: relative;
   display: grid;
   grid-template-columns: 7% 93%;
@@ -61,7 +52,16 @@ form {
   border-bottom: 2px solid #d9d9d9;
 }
 
-.houses-content .input-div-houses.one-houses {
+.select-div-houses {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7% 93%;
+  margin: 5px 0;
+  padding: 5px 0;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.one-houses {
   margin-top: 0;
 }
 
@@ -81,7 +81,12 @@ form {
   height: 45px;
 }
 
-.input-div-houses > div > h5 {
+.select-div-houses > div {
+  position: relative;
+  height: 25px;
+}
+
+.hAddHouses {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -91,43 +96,10 @@ form {
   transition: 0.3s;
 }
 
-.input-div-houses:before,
-.input-div-houses:after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background-color: #38d39f;
-  transition: 0.4s;
-}
-
-.input-div-houses:before {
-  right: 50%;
-}
-
-.input-div-houses:after {
-  left: 50%;
-}
-
-.input-div-houses.focus:before,
-.input-div-houses.focus:after {
-  width: 50%;
-}
-
-.input-div-houses.focus > div > h5 {
-  top: -5px;
-  font-size: 15px;
-}
-
-.input-div-houses.focus > .i > i {
-  color: #38d39f;
-}
-
-.input-div-houses > div > input {
+.inputAddHouses {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 30px;
   width: 100%;
   height: 100%;
   border: none;
@@ -136,6 +108,21 @@ form {
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
   color: #555;
+  font-family: "poppins", sans-serif;
+}
+
+.select-houses {
+  position: absolute;
+  left: 45px;
+  top: 10px;
+  width: 50%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.2rem;
+  color: rgb(73, 72, 72);
   font-family: "poppins", sans-serif;
 }
 
@@ -158,12 +145,12 @@ a:hover {
 
 .btn-houses {
   display: block;
-  width: 50%;
+  width: 98%;
   height: 50px;
   border-radius: 25px;
   outline: none;
   border: none;
-  background-color: #D9895B;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
   background-size: 200%;
   font-size: 1.2rem;
   color: #fff;
