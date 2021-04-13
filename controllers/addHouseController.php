@@ -11,6 +11,7 @@
 
         /** Controller to add a House */
         public function add_house_Controller(){
+            $name=mainModel::clean_chain($_POST['house_name_reg']);
             $descrip=mainModel::clean_chain($_POST['house_des_reg']);
             $rooms=mainModel::clean_chain($_POST['house_rooms_reg']);
             $bath=mainModel::clean_chain($_POST['house_bath_reg']);
@@ -21,10 +22,11 @@
             $price=mainModel::clean_chain($_POST['house_price_reg']);
             $capacity=mainModel::clean_chain($_POST['house_capacity_reg']);
             $owner=mainModel::clean_chain($_POST['house_owner_reg']);
+            $imgmain=mainModel::clean_chain($_POST['Img_main']);
 
 
             /** checking that we do not have any empty requiered field */
-            if($descrip=="" || $rooms=="" || $bath=="" || $parking=="" || $internet=="" || $services=="" || $locat=="" || $price=="" || $capacity=="" || $owner==""){
+            if($name=="" || $descrip=="" || $rooms=="" || $bath=="" || $parking=="" || $internet=="" || $services=="" || $locat=="" || $price=="" || $capacity=="" || $owner==""){
                 $alerta=[
                     "Alert"=>"simple",
                     "Title"=>"Ocurrio un error",

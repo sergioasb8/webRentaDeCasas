@@ -85,5 +85,23 @@
                 </script>
                 ';
             }
-        }
+        } /** End of Controller to start session */
+
+        /** Controller to force logout */
+        public function force_logout_controller() {
+            session_unset();
+            session_destroy();
+
+            /** headers sent return true if any headers are sent */
+            if(headers_sent()){
+                return "
+                    <script>
+                        window.location.href='".SERVERURL."home/';
+                    </script>
+                ";
+            }   
+            else {
+                return header("Location: ".SERVERURL."home/");
+            }
+        }   /** End of Controller to force logout */
     }
