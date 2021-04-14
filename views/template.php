@@ -20,17 +20,26 @@
             require_once "./views/contents/".$viewsRoute."-view.php";
         }
         else {
+
             session_start(['name'=>'RHS']);
             require_once "./controllers/loginController.php";
             $lc = new loginController();
-
+            
             /** checking if we started session verifying if the session vars have been created */
-            // if(!isset($_SESSION['token_rhs']) || !isset($_SESSION['name_rhs']) || !isset($_SESSION['role_rhs'])) {
-            //     echo $lc->force_logout_controller();
-            //     exit();
-            // }
+            if($viewsRoute=="./views/contents/house-view.php" || $viewsRoute=="house/") {
+                if(!isset($_SESSION['token_rhs']) || !isset($_SESSION['name_rhs']) || !isset($_SESSION['role_rhs'])) {
+                    echo $lc->force_logout_controller();
+                    exit();
+                }
+                else {
+                    require_once "./views/contents/house-view.php";
+                }
+            }
 
-            include $viewsRoute;
+            if($viewsRoute!="./views/contents/house-view.php") {
+                include $viewsRoute;
+            }
+            
         } 
         require_once "./views/inc/Footer.php";
         include "./views/inc/Script.php"; 

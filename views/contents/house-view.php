@@ -104,7 +104,7 @@
             </div>
             <div>
                 <h5 class="hAddHouses">Precio</h5>
-                <input type="text" pattern="[0-9-]{1,11}" name="house_capacity_reg" maxlength="11" class="inputAddHouses">
+                <input type="text" pattern="[0-9-]{1,11}" name="house_price_reg" maxlength="11" class="inputAddHouses">
             </div>
         </div>
         <input type="submit" class="btn-houses" value="PUBLICAR">
