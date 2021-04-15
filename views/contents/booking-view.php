@@ -3,7 +3,7 @@
 require_once "./controllers/housesController.php";
 
 $houses = housesController::ctrInfoHouses();
-echo '<pre style="background-color:white;">'; print_r($houses); echo '</pre>';
+/* echo '<pre style="background-color:white;">'; print_r($houses); echo '</pre>'; */
 
 ?>
 
