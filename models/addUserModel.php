@@ -17,5 +17,36 @@
             $sql->execute();
 
             return $sql;
+        } 
+
+        /** Controlller to update user */ 
+        public function update_user_model() {
+            $sql=mainModel::connect()->prepare("UPDATE users  SET name=:Name, mail=:Mail, password=:Password, city=:City, role=:Role WHERE id=:Id");
+            $sql->bindParam(":Name",$dataArray['Name']);
+            $sql->bindParam(":Mail",$dataArray['Mail']);
+            $sql->bindParam(":Password",$dataArray['Password']);
+            $sql->bindParam(":City",$dataArray['City']);
+            $sql->bindParam(":Role",$dataArray['Role']);
+            
+            $sql->execute();
+
+            return $sql;
+        }
+
+        /** Model to get all user */ 
+        protected static function get_user_model() {
+            $sql= mainModel::connect()->prepare("SELECT name, mail, password, city, role FROM users");
+            $sql->execute();
+
+            return $sql->fetch();
+        }
+         
+         /** Model delete user */ 
+        protected function delete_account($id) {
+            $sql=self::connect()->prepare("DELETE FROM users WHERE id=:id");
+            $sql->bindParam(":id", $id);
+            $sql->execute();
+
+            return $sql;
         }
     }

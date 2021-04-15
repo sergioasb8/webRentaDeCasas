@@ -24,11 +24,11 @@
             require_once "./controllers/loginController.php";
             $lc = new loginController();
 
-            /** checking if we started session verifying if the session vars have been created */
-            if(!isset($_SESSION['token_rhs']) || !isset($_SESSION['name_rhs']) || !isset($_SESSION['role_rhs'])) {
-                echo $lc->force_logout_controller();
-                exit();
-            }
+            // /** checking if we started session verifying if the session vars have been created */
+            // if(!isset($_SESSION['token_rhs']) || !isset($_SESSION['name_rhs']) || !isset($_SESSION['role_rhs'])) {
+            //     echo $lc->force_logout_controller();
+            //     exit();
+            // }
 
             include $viewsRoute;
         } 
