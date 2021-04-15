@@ -491,7 +491,7 @@ body,html{
 	background-color: #1980a8;
 	color: white;
 }
-.btn-blue{
-	background-color: #F2CD88;
-	color: var(--form-color);
+.btn-beige{
+	background-color: #F2CD88!important;
+	color: var(--form-color)!important;
 }
