@@ -46,8 +46,8 @@
             // getting the extension of our file
             $imgmainExt = explode('.',$imgmainName);
             $imgmainActualExt = strtolower(end($imgmainExt));
-            $allowed = array('jpg', 'jpeg', 'png', 'pdf');
-            $imgmainNameComplete = $imgmainName.$imgmainActualExt;
+            $allowed = array('jpg', 'jpeg', 'png', 'pdf', 'JPG', 'JPEG', 'PNG');
+            $imgmainNameComplete = $imgmainName;
             $fileDestination = "";
             // checking if the type of file is allowed
             if(in_array($imgmainActualExt, $allowed)) {

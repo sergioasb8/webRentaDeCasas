@@ -19,7 +19,7 @@ $houses = housesController::ctrInfoHouses();
         <?php foreach ($houses as $key => $house) : ?>
             <div class="card-product div-bordered bg-white shadow-2">
                 <figure class="card-product-img">
-                    <img class="img-fluid" src="<?php echo $house["img_main"]; ?>" alt="nombre_platillo">
+                    <img class="img-fluid" src="webRenta/<?php echo $house["img_main"]; ?>" alt="nombre_platillo">
                 </figure>
                 <div class="card-product-body">
                     <div class="card-product-content">
