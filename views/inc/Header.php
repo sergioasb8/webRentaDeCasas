@@ -32,7 +32,7 @@
                 <i class="fas fa-user-circle fa-3x"></i><br>
                 <small>Nombre de usuario</small>
             </p>
-            <a class="dropdown-item" href="javascript:void(0);">
+            <a href="<?php echo SERVERURL; ?>dashboard" class="dropdown-item" href="javascript:void(0);">
                 <i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard
             </a>
             <a class="dropdown-item" href="javascript:void(0);">
