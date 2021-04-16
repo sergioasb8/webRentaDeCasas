@@ -42,7 +42,7 @@
         }
          
          /** Model delete user */ 
-        protected function delete_user($id) {
+        protected function delete_user_model($id) {
             $sql=self::connect()->prepare("DELETE FROM users WHERE id=:id");
             $sql->bindParam(":id", $id);
             $sql->execute();

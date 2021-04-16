@@ -240,10 +240,11 @@
                         <td>'.$rows['role'].'</td>
                         <td>
                             <form action="'.SERVERURL.'ajax/removeUserAjax.php" method="POST" class="FormAjax" data-form="delete"> 
-                                <button class="remove-user-btn text-danger" data-user-id="'.$rows['id'].'">
+                                <input type="hidden" name="user_delete_id" value="'.$rows['id'].'"/>
+
+                                <button type="submit" class="remove-user-btn text-danger">
                                     <i class="fas fa-user-minus"></i>
-                                </button>
-                            
+                                </button>  
                             </form>
                             
                         </td>
@@ -262,9 +263,10 @@
             return $table;
         }
 
-        public function delete_user_controller($userId) {
-            $name=mainModel::clean_chain($_POST['user_name_reg']);
-           if($name=="" || $mail=="" || $passwordOne=="" || $passwordTwo=="" || $city=="" || $role==""){
+        public function delete_user_controller() {
+            $userId = mainModel::clean_chain($_POST['user_delete_id']);
+            
+            if($userId==""){
                 $alerta=[
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error",
@@ -275,84 +277,39 @@
                 exit();
             }
 
-            /** checking that the email is not registered in the database */
-            if($mail!="") {
-                /** if the email is a valid email */
-                if(filter_var($mail,FILTER_VALIDATE_EMAIL)) {
-                    $check_mail=mainModel::run_simple_query("SELECT mail FROM users WHERE mail='$mail'");
-                    if($check_mail->rowCount()>0) {
-                        $alerta = [
-                            "Alerta"=>"simple",
-                            "Titulo"=>"Ocurrio un error",
-                            "Texto"=>"Ese email ya se encuentra registrado, por favor intenta con uno nuevo",
-                            "Tipo"=>"error"
-                        ];
-                        echo json_encode($alerta);
-                        exit();
-                    }
-                /** si el email ingresado no es un email valido */
-                }   else {
-                    $alerta = [
-                        "Alerta"=>"simple",
-                        "Titulo"=>"Ocurrio un error",
-                        "Texto"=>"El email no contiene un formato valido",
-                        "Tipo"=>"error"
-                    ];
-                    echo json_encode($alerta);
-                    exit();
-                }
-            }
+            $user = mainModel::run_simple_query("SELECT email FROM users WHERE id='$userId'");
 
-            /** checking that the user wrote the same password twice */
-            if($passwordOne != $passwordTwo) {
+            if ($user->rowCount() < 1) {
                 $alerta = [
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error",
-                    "Texto"=>"Las contraseñas no coinciden",
+                    "Texto"=>"No se encuentra el usuario, por favor intenta de nuevo",
                     "Tipo"=>"error"
                 ];
                 echo json_encode($alerta);
                 exit();
-            }   else {
-                /** if the passwords are the same lets encrypt the password */
-                $password=mainModel::encryption($passwordOne);
             }
 
-            /** Passing the data that we are goint to send to the model */
-            $data_user_reg = [
-                "Name"=>$name,
-                "Mail"=>$mail,
-                "Password"=>$password,
-                "City"=>$city,
-                "Role"=>$role
-            ];
-
-            $add_user= addUserModel::add_user_model($data_user_reg);
+            $userRemoved= addUserModel::delete_user_model($userId);
 
             /** confirm that the data was sent correctly to the database */
-            if($add_user->rowCount()==1) {
+            if($userRemoved->rowCount()==1) {
                 /** when the alert is "limpiar" it will clean all the form */
                 $alerta=[
                     "Alerta"=>"limpiar",
-                    "Titulo"=>"Usuario registrado",
-                    "Texto"=>"Usuario registrado con exito",
+                    "Titulo"=>"Usuario eliminado",
+                    "Texto"=>"Usuario eliminado con éxito",
                     "Tipo"=>"success"
                 ];
-                echo json_encode($alerta); 
-            }   else {
+                echo json_encode($alerta);
+            } else { 
                 $alerta = [
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error",
-                    "Texto"=>"No hemos podido registrar el usuario",
+                    "Texto"=>"No hemos podido eliminar el usuario",
                     "Tipo"=>"error"
                 ];
                 echo json_encode($alerta); 
             }
         }
     }
-    
-    
- 
-        
-
-        
