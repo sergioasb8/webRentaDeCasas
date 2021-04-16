@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-04-2021 a las 19:02:58
+-- Tiempo de generación: 16-04-2021 a las 03:40:15
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -57,14 +57,6 @@ CREATE TABLE `houses` (
   `img_main` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `houses`
---
-
-INSERT INTO `houses` (`name`, `description`, `rooms`, `bath`, `parking`, `internet`, `services`, `location`, `price`, `capacity`, `id`, `user_id`, `img_main`) VALUES
-('CasaHerley', 'Casa grande roja', 4, 3, 2, 1, 'hidden', 'chapinero', 250000, 8, 1, 1, ''),
-('CASA HERLEY', 'HDSBFHBDKJNBKJSDNAFJ', 5, 3, 2, 1, 'SI HAY JEJE', 'CHAPINERO', 250000, 8, 2, 1, '');
-
 -- --------------------------------------------------------
 
 --
@@ -100,7 +92,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `mail`, `password`, `city`, `gdpr`, `role`) VALUES
 (1, 'Juan Carlos Ortiz', 'juan@gmail.com', '12345', 'Bogota', 1, 'Arrendatario'),
 (2, 'Sergio Sosa', 'sergio@gmail.com', 'T1NvTDl4Wlg4M2lUc3RBU3VPbDI0Zz09', 'Ibague', 0, 'Propietario'),
-(3, 'Adriana', 'adri@mail.com', 'RW9NKzlzK1B2bGczb2pHdHZkb0o2QT09', 'Bogota', 0, 'Propietario');
+(3, 'Adriana', 'adri@mail.com', 'RW9NKzlzK1B2bGczb2pHdHZkb0o2QT09', 'Bogota', 0, 'Propietario'),
+(4, 'steven', 'steven@liverpool.com', 'QVVlR1NpQW9vMVdHQmF2VlJXeW9UZz09', 'liverpool', 0, 'Propietario');
 
 --
 -- Índices para tablas volcadas
@@ -117,8 +110,7 @@ ALTER TABLE `dates`
 -- Indices de la tabla `houses`
 --
 ALTER TABLE `houses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `images`
@@ -140,13 +132,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `houses`
 --
 ALTER TABLE `houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -158,12 +150,6 @@ ALTER TABLE `users`
 ALTER TABLE `dates`
   ADD CONSTRAINT `dates_ibfk_1` FOREIGN KEY (`id_house`) REFERENCES `houses` (`id`),
   ADD CONSTRAINT `dates_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
-
---
--- Filtros para la tabla `houses`
---
-ALTER TABLE `houses`
-  ADD CONSTRAINT `houses_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Filtros para la tabla `images`
