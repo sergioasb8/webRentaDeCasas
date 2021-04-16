@@ -8,7 +8,7 @@
         require_once "../controllers/addUserController.php";
         $ins_user = new addUserController();
 
-        echo $ins_user->delete_user_controller($_POST['user_delete_id']); 
+        echo $ins_user->delete_user_controller(); 
     }
     else {
         /** Rent houses system => */
