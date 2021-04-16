@@ -80,7 +80,7 @@
 	<div class="banner-body">
 		<h2 class="text-uppercase">Vale la pena compartir tu mundo</h2>
 		<p>Transforma el espacio que no usas en una nueva oportunidad.</p>
-		<a href="./house" class="btn btn-blue">
+		<a href="./house" class="btn btn-beige">
 			<i class="fas fa-sign fa-fw"></i> &nbsp; Registra tu casa aquí
 		</a>
 	</div>

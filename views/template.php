@@ -26,6 +26,7 @@
             $lc = new loginController();
             
             /** checking if we started session verifying if the session vars have been created */
+
             if($viewsRoute=="./views/contents/house-view.php" || $viewsRoute=="house/") {
                 if(!isset($_SESSION['token_rhs']) || !isset($_SESSION['name_rhs']) || !isset($_SESSION['role_rhs'])) {
                     echo $lc->force_logout_controller();
