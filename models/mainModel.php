@@ -24,6 +24,13 @@
             return $sql;
         }
 
+        protected static function get_last_results_count() {
+            $conexion= mainModel::connect();
+            $total=$conexion->query("SELECT found_rows()");
+
+            return (int) $total->fetchColumn();
+        }
+
         /** function to encrypt a string */
         public function encryption($string){
 			$output=FALSE;

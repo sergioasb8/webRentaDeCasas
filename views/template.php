@@ -15,6 +15,7 @@
         $viewsRoute=$IV->get_views_controller();
 
         require_once "./views/inc/Header.php";
+
         /** Como el login no contiene header ni footer entonces si desde el controlleer estamos trayendo el login no vamos a mostrar el header ni el footer, por eso el condicional */
         if($viewsRoute=="home" || $viewsRoute=="404") {
             require_once "./views/contents/".$viewsRoute."-view.php";
@@ -31,7 +32,8 @@
             // }
 
             include $viewsRoute;
-        } 
+        }
+
         require_once "./views/inc/Footer.php";
         include "./views/inc/Script.php"; 
     ?>
