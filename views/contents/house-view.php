@@ -3,7 +3,7 @@
         <h2 class="titleImg"> <?php echo $_SESSION['name_rhs'];?> Registra aquí tu hogar</h2>
         <img class="imgHouse" src="<?php echo SERVERURL; ?>views/assets/img/houses2.jpg" alt="Houses">
     </div>
-    <form class="FormAjax addHouseForm" action="<?php echo SERVERURL; ?>ajax/addHouseAjax.php"  method="POST" data-form="save" autocomplete="off">
+    <form class="FormAjax addHouseForm" action="<?php echo SERVERURL; ?>ajax/addHouseAjax.php"  method="POST" data-form="save" autocomplete="off" enctype="multipart/form-data">
         <div class="input-div-houses one-houses">
             <div class="i">
                 <i class="fas fa-home"></i>
@@ -95,7 +95,7 @@
             </div>
             <div>
                 <h5 class="hAddHouses">Foto principal</h5>
-                <input type="text" name="house_img_reg" class="inputAddHouses">
+                <input type="file" name="house_img_reg" class="inputAddHouses">
             </div>
         </div>
         <div class="input-div-houses pass-houses">
@@ -107,6 +107,7 @@
                 <input type="text" pattern="[0-9-]{1,11}" name="house_price_reg" maxlength="11" class="inputAddHouses">
             </div>
         </div>
+        <input type='hidden' value="<?php echo $_SESSION['id_rhs'];?>" name='house_user_reg'> 
         <input type="submit" class="btn-houses" value="PUBLICAR">
     </form>
 </div>

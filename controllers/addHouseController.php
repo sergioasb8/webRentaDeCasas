@@ -21,8 +21,8 @@
             $location=mainModel::clean_chain($_POST['house_location_reg']);
             $price=mainModel::clean_chain($_POST['house_price_reg']);
             $capacity=mainModel::clean_chain($_POST['house_capacity_reg']);
-            $userId=$_SESSION['id_rhs'];
-            $imgmain=mainModel::clean_chain($_POST['house_img_reg']);
+            $userId=mainModel::clean_chain($_POST['house_user_reg']);
+            $imgmain=$_FILES['house_img_reg'];
 
 
             /** checking that we do not have any empty requiered field */
@@ -34,6 +34,48 @@
                     "Tipo"=>"error"
                 ];
                 echo json_encode($alerta);
+                exit();
+            }
+
+            /** checking all the info about the file is working correctly */
+
+            $imgmainName = $_FILES['house_img_reg']['name'];
+            // temporal location of our file 
+            $imgmainTmpName = $_FILES['house_img_reg']['tmp_name'];
+            $imgmainError = $_FILES['house_img_reg']['error'];
+            // getting the extension of our file
+            $imgmainExt = explode('.',$imgmainName);
+            $imgmainActualExt = strtolower(end($imgmainExt));
+            $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+            $imgmainNameComplete = $imgmainName.$imgmainActualExt;
+            $fileDestination = "";
+            // checking if the type of file is allowed
+            if(in_array($imgmainActualExt, $allowed)) {
+                // checking if we have any kind of errors
+                if($imgmainError===0) { 
+                    
+                    $fileDestination = "../views/assets/db_img/".$imgmainNameComplete;
+                    move_uploaded_file($imgmainTmpName, $fileDestination);
+                }
+                else {
+                    $alerta = [
+                        "Alerta"=>"simple",
+                        "Titulo"=>"Ocurrio un error",
+                        "Texto"=>"Por favor intenta subir de nuevo el archivo",
+                        "Tipo"=>"error"
+                    ];
+                    echo json_encode($alerta); 
+                    exit();
+                }
+            }
+            else {
+                $alerta = [
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error",
+                    "Texto"=>"Ese tipo de archivo no esta permitido",
+                    "Tipo"=>"error"
+                ];
+                echo json_encode($alerta); 
                 exit();
             }
 
@@ -50,7 +92,7 @@
                 "Price"=>$price,
                 "Capacity"=>$capacity,
                 "User_id"=>$userId,
-                "Img_main"=>$imgmain
+                "Img_main"=>$fileDestination
             ];
 
             $add_house= addHouseModel::add_house_model($data_house_reg);
